@@ -1,0 +1,16 @@
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m,n= len(matrix),len(matrix[0])
+        l,r = 0, m*n-1
+        while l <= r:
+            mid = (l+r)//2
+            #mid = 5, n = 4
+            midVal = matrix[mid//n][mid%n]
+            if midVal > target:
+                r = r-1
+            elif midVal < target:
+                l = l+1
+            else:
+                return True
+        return False 
+                
